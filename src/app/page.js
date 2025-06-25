@@ -2,9 +2,12 @@ import Image from "next/image";
 import Footer from "@/app/Footer";
 
 export default function Home() {
+
+
+
     return (<>
         <div
-            className="justify-items-center p-[40px] pb-20">
+            className="justify-items-center p-[30px] pb-20">
             <main className="flex flex-col gap-[32px] w-full sm:w-1/3">
                 <Image
                     className="dark:invert w-full"
