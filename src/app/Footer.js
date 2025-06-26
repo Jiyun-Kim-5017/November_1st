@@ -21,17 +21,24 @@ export default function Footer() {
     };
     const shareKakao = () => {
         if (window.Kakao) {
-            // 여기에 카카오톡 개발자 사이트에서 만든 템플릿 코드를 그대로 붙여넣으세요
             window.Kakao.Share.sendDefault({
                 objectType: 'feed',
                 content: {
-                    title: '현준,지윤',
-                    imageUrl: 'https://november-1st.vercel.app/setFull_1372_1.png',
+                    title: '지윤',
+                    description: '11월 1일, 저희의 결혼식에 초대합니다.',
+                    imageUrl: 'https://november-1st.vercel.app/4.png',
                     link: {
                         mobileWebUrl: 'https://november-1st.vercel.app',
                         webUrl: 'https://november-1st.vercel.app'
-                    }},
-
+                    }
+                },
+                buttons: [{
+                    title: '청첩장 열기',
+                    link: {
+                        mobileWebUrl: 'https://november-1st.vercel.app',
+                        webUrl: 'https://november-1st.vercel.app'
+                    }
+                }]
             });
         }
     };
