@@ -26,7 +26,7 @@ export default function Footer() {
                 content: {
                     title: '지윤',
                     description: '11월 1일, 저희의 결혼식에 초대합니다.',
-                    imageUrl: 'https://november-1st.vercel.app/4.png',
+                    imageUrl: '/4BE00381.jpg',
                     link: {
                         mobileWebUrl: 'https://november-1st.vercel.app',
                         webUrl: 'https://november-1st.vercel.app'
@@ -43,10 +43,10 @@ export default function Footer() {
         }
     };
 
-    return (<footer className="w-full h-[40px] bg-red-200">
+    return (<footer className="">
         <button
             onClick={shareKakao}
-            className="fixed bottom-20 right-4 z-50 bg-yellow-300 rounded-full p-4 shadow-lg"
+            className=""
         >
             카카오톡 공유하기
         </button>
