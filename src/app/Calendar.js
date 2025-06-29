@@ -1,5 +1,5 @@
 'use client';
-import styles from '../css/Calendar.module.css';
+import styles from '@/css/Calendar.module.css';
 
 export default function Calendar() {
     return (

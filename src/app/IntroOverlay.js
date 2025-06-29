@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import styles from '../css/IntroOverlay.module.css';
+import styles from '@/css/IntroOverlay.module.css';
 
 export default function IntroOverlay({ images }) {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);

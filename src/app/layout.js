@@ -1,4 +1,4 @@
-import "../css/globals.css";
+import "@/css/globals.css";
 import Script from 'next/script'
 
 export default function RootLayout({children}) {
