@@ -6,13 +6,11 @@ export default function ScrollLock({ duration }) {
         document.body.style.overflow = 'hidden';
 
         const timer = setTimeout(() => {
-            document.body.style.overflow = 'auto';
             document.body.classList.add('scrollable');
         }, duration);
 
         return () => {
             clearTimeout(timer);
-            document.body.style.overflow = 'auto';
             document.body.classList.add('scrollable');
         };
     }, [duration]);

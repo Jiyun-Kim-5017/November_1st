@@ -1,96 +1,84 @@
-import Footer from "@/app/Footer";
-import Calendar from "@/app/Calendar";
-import IntroOverlay from "@/app/IntroOverlay";
+import Footer from "@/app/components/Footer";
+import Calendar from "@/app/components/Calendar";
+import IntroOverlay from "@/app/components/IntroOverlay";
 import ScrollLock from "@/app/ScrollLock";
-import HeartCursorEffect from "@/app/HeartCursorEffect";
+import HeartCursorEffect from "@/app/components/HeartCursorEffect";
+import Message from "@/app/components/Message";
+import Loca from "@/app/components/Loca";
+import Gallery from "@/app/components/Gallery";
+import Contact from "@/app/components/Contact";
+import Invitation from "@/app/components/Invitation";
 
 export default function Home() {
-    const images = ["/opening.jpg", "/opening_pic.jpg"];
-
     return (<>
         <HeartCursorEffect/>
         <ScrollLock duration={2000}/>
 
-        <div className="">
-            <main className="" style={{
+        <main className="" style={{
+            display: "flex",
+            flexDirection: "column",
+            padding: "1rem",
+            background: "top center / contain repeat-y url('/card4.jpg')",
+        }}>
+            <IntroOverlay/>
+            <Invitation/>
+
+            <div className="" style={{
+                padding: "2rem 0",
                 display: "flex",
                 flexDirection: "column",
-
+                justifyContent: "center",
+                alignItems: "center",
             }}>
-                <IntroOverlay images={images}/>
-                <div style={{background: "center / cover url('/card2.png')"}}>
-                    <div
-                        className="section" style={{
-                        padding: '2rem',
-                        textAlign: 'center',
-                        wordBreak: 'keep-all',
+                <h1>Wedding Day</h1>
+                <div>2025년 11월 1일 토요일 | 오후 1시 50분</div>
+                <Calendar/>
+            </div>
 
-                    }}>
-                        <p><span style={{
-                            color: '#f0a1bf',
-                            fontWeight: 'bold'
-                        }}>봄</span>처럼 포근하고</p>
-                        <p><span style={{
-                            color: '#4ab34a',
-                            fontWeight: 'bold'
-                        }}>여름</span>처럼 뜨겁고</p>
-                        <p><span style={{
-                            color: '#d68231',
-                            fontWeight: 'bold'
-                        }}>가을</span>처럼 충만하고</p>
-                        <p><span style={{
-                            color: '#68a4d9',
-                            fontWeight: 'bold'
-                        }}>겨울</span>처럼 설레는</p>
-                        <p>사람을 만났습니다.</p>
-                        <br/>
-                        <p>이제 서로의 <b>모든 계절</b>을 함께하려 합니다.</p>
-                        <p>가장 빛날 오늘,</p>
-                        <p>늘 곁에서 아껴준 고마운 분들을 초대합니다.</p>
-                    </div>
-
-                    <div className="">
-                        <div style={{
-                            marginBottom: '0.5rem',
-                            fontFamily: 'Fuzzy Bubbles',
-                            fontSize: 30,
-                            color: 'rgb(50,50,50)',
-                            textAlign: 'center'
-                        }}>Gallery
-                        </div>
-                        <div style={{ width: '100vw', aspectRatio: 0.666, background: 'black'}}></div>
-                    </div>
-
-                    <div className="" style={{
-                        padding: '2rem',
-                        display: 'flex',
-                        flexDirection: 'column'
-                    }}>
-                        <div style={{
-                            marginBottom: '0.5rem',
-                            fontFamily: 'Fuzzy Bubbles',
-                            fontSize: 30,
-                            color: 'rgb(50,50,50)',
-                            textAlign: 'center'
-                        }}>Wedding Day
-                        </div>
-                        <Calendar/>
-                    </div>
-
-                    <div className="">
-                        위치(지도), 앱 연결, 오시는 방법
-                    </div>
-
-                    <div className="">
-                        연락처
-                    </div>
-
-                    <div className="">
-                        메세지
-                    </div>
+            <div className="" style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center"
+            }}>
+                <h1>Gallery</h1>
+                <div style={{
+                    width: "100%",
+                    height: "500px",
+                    background: "rgba(0,0,0,0.1)",
+                }}>
+                    <Gallery/>
                 </div>
-            </main>
-        </div>
+            </div>
+
+            <div className="" style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center"
+            }}>
+                <h1>Lacation</h1>
+                <div>서울 마포구 월드컵로 240 2층 (월드컵경기장 서측)</div>
+                <div>월드컵컨벤션 임페리얼블룸</div>
+                <Loca/>
+            </div>
+
+            <div className="" style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center"
+            }}>
+                <h1>Contact</h1>
+                <Contact/>
+            </div>
+
+            <div className="" style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center"
+            }}>
+                <h1>Message</h1>
+                <Message/>
+            </div>
         <Footer/>
+        </main>
     </>);
 }

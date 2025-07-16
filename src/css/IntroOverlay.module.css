@@ -1,7 +1,9 @@
 .container {
     position: relative;
-    width: 100vw;
-    aspect-ratio: 0.5625;
+    width: 100%;
+    aspect-ratio: 0.75289;
+    border-radius: 30%;
+    overflow: hidden;
 }
 
 .imageContainer {
