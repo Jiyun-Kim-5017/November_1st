@@ -13,12 +13,6 @@ export default function Footer() {
         }
     }, []);
 
-    const handleClick = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        })
-    };
     const shareKakao = () => {
         if (window.Kakao) {
             window.Kakao.Share.sendDefault({

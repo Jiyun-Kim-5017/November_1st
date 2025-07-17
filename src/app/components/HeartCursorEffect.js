@@ -1,17 +1,15 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 export default function HeartCursorEffect() {
     const lastHeartTimeRef = useRef(0);
     const cursorRef = useRef(null);
-    const [position, setPosition] = useState({ x: 0, y: 0 });
     const activeHeartsRef = useRef(new Set());
     const isMobileRef = useRef(false);
 
     useEffect(() => {
         isMobileRef.current = /mobile|tablet|android|ios/i.test(navigator.userAgent);
 
-        // PC에서만 커서 하트 표시
         if (!isMobileRef.current) {
             const cursorHeart = document.createElement('img');
             cursorHeart.src = '/heart.png';
@@ -44,7 +42,6 @@ export default function HeartCursorEffect() {
             if (isMobileRef.current) return;
 
             const now = Date.now();
-            setPosition({ x: e.clientX, y: e.clientY });
 
             if (cursorRef.current) {
                 cursorRef.current.style.left = `${e.clientX}px`;
