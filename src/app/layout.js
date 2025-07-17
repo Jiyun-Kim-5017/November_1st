@@ -10,7 +10,6 @@ export default function RootLayout({children}) {
             src="https://developers.kakao.com/sdk/js/kakao.js"
             strategy="beforeInteractive"
         />
-        <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=0hk8z6jh50" async/>
         <title></title>
     </head>
     <body>{children}</body>
