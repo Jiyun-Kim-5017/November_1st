@@ -3,10 +3,11 @@
 export default function Invitation() {
     return (<div
         className="section" style={{
-        padding: "2rem",
+        padding: "3rem 2rem 2rem 2rem",
         textAlign: "center",
         wordBreak: "keep-all",
-
+        backgroundColor: "rgba(0,0,0,0.3)",
+        color: "white",
     }}>
         <p><span style={{
             color: "#f0a1bf",
@@ -29,7 +30,7 @@ export default function Invitation() {
         <p>이제 서로의 <b>모든 계절</b>을 함께하려 합니다.</p>
         <p>가장 빛날 오늘,</p>
         <p>늘 곁에서 아껴준 고마운 분들을 초대합니다.</p>
-        <div>이진구 | 김정자의 장남 현준</div>
-        <div>김용회 | 홍은경의 장녀 지윤</div>
+        <p style={{paddingTop: 40, fontSize: 18, letterSpacing: 1}}><b>이진구 | 김정자</b>의 장남 <b>현준</b></p>
+        <p style={{fontSize: 18, letterSpacing: 1}}><b>김용회 | 홍은경</b>의 장녀 <b>지윤</b></p>
     </div>)
 }

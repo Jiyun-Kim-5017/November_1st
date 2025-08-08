@@ -1,7 +1,8 @@
 .container {
     position: relative;
-    width: 100%;
+    width: 90%;
     aspect-ratio: 0.75289;
+    margin: 16px auto;
     border-radius: 30%;
     overflow: hidden;
 }

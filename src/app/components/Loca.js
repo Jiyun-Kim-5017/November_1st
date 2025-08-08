@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {useCallback, useEffect, useState} from "react";
 import {openAppWithFallback} from "@/util/deeplink";
 import Script from "next/script";
@@ -76,9 +77,12 @@ export default function Loca() {
             background: "rgb(248, 249, 250)",
             aspectRatio: 1.2,
         }}></div>
-
-        <a href="#" onClick={handleNaverClick}>Naver 길찾기</a>
-        <a href="#" onClick={handleKakaoClick}>KaKao 길찾기</a>
-        {isMobile && <a href="#" onClick={handleTmapClick}>Tmap 길찾기</a>}
+        <div style={{display: 'flex', width: isMobile ? 300 : 300, maxWidth: '100%', justifyContent: 'space-around', marginTop: 10}}>
+            <a style={{textDecoration: 'none', background: 'pink', padding: '5px 15px', color: 'black', backgroundColor: '#ffd1b4', borderRadius: 8}} href="#" onClick={handleNaverClick}>
+                <Image src={'/naver.webp'} width={20} height={20} alt={'naver'}/>
+                네이버</a>
+            <a style={{textDecoration: 'none', background: 'pink', padding: '5px 15px', color: 'black', backgroundColor: '#ffd1b4', borderRadius: 8}} href="#" onClick={handleKakaoClick}>카카오</a>
+            {isMobile && <a style={{textDecoration: 'none', background: 'pink', padding: '5px 15px', color: 'black', backgroundColor: '#ffd1b4', borderRadius: 8}} href="#" onClick={handleTmapClick}>티맵</a>}
+        </div>
     </>);
 }
