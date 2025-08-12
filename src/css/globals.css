@@ -76,5 +76,23 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 
 }
 
+.title {
+    font-family: "Gowun Batang", serif;
+    letter-spacing: 1px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 70px;
+}
+
+.title.cal {
+    margin-top: 10px;
+}
+
+.miniTitle {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #4ab34a;
+}
+
 
 

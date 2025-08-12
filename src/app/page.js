@@ -34,7 +34,7 @@ export default function Page() {
                 <div className="" style={{
                     padding: "0 1rem", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", backgroundColor: "rgba(0,0,0,0.3)", color: "white"
                 }}>
-                    <h3 style={{letterSpacing: 1, fontFamily: "Gowun Batang"}}>WEDDING DAY</h3>
+                    <div className="title cal">WEDDING DAY</div>
                     <div style={{fontSize: 17}}>2025년 11월 1일 토요일 | 오후 1시 50분</div>
                     <Calendar/>
                 </div>
@@ -43,9 +43,10 @@ export default function Page() {
             <div className="" style={{
                 display: "flex", flexDirection: "column", alignItems: "center"
             }}>
-                <h3 style={{letterSpacing: 1, fontFamily: "Gowun Batang", paddingTop: 40}}>GALLERY</h3>
+                <div className="title">GALLERY</div>
+                <div className="miniTitle">갤러리</div>
                 <div style={{
-                    width: "100%", background: "rgba(0,0,0,0.1)",
+                    width: "100%", paddingTop: '1rem', paddingBottom: '1rem', background: "center / cover no-repeat url('/card3.png')",
                 }}>
                     <Gallery/>
                 </div>
@@ -54,23 +55,27 @@ export default function Page() {
             <div className="" style={{
                 display: "flex", flexDirection: "column", alignItems: "center"
             }}>
-                <h3 style={{letterSpacing: 1, fontFamily: "Gowun Batang"}}>LOCATION</h3>
-                <div>서울 마포구 월드컵로 240 2층 (월드컵경기장 서측)</div>
-                <div>월드컵컨벤션 임페리얼블룸</div>
+                <div className="title">LOCATION</div>
+                <div className="miniTitle">오시는 길</div>
+                <div>서울 마포구 월드컵로 240 2층</div>
+                <div style={{fontSize: 14, color: '#aaa', marginBottom: 5}}>(월드컵경기장 서측)</div>
+                <div style={{marginBottom: 5}}>월드컵컨벤션 임페리얼블룸</div>
                 <Loca/>
             </div>
 
             <div className="" style={{
                 display: "flex", flexDirection: "column", alignItems: "center"
             }}>
-                <h3 style={{letterSpacing: 1, fontFamily: "Gowun Batang"}}>CONTACT</h3>
+                <div className="title">CONTACT</div>
+                <div className="miniTitle">연락처</div>
+                <div style={{fontSize: 14, textAlign: "center", color: "#68a4d9", marginBottom: 10}}>참석이 어려우신 분들을 위해 기재하였습니다.<br/>너그러운 마음으로 양해 부탁드립니다.</div>
                 <Contact/>
             </div>
 
             <div className="" style={{
                 display: "flex", flexDirection: "column", alignItems: "center"
             }}>
-                <h3 style={{letterSpacing: 1, fontFamily: "Gowun Batang"}}>MESSAGE</h3>
+                <div className="title">MESSAGE</div>
                 <Message/>
             </div>
             <Footer/>
