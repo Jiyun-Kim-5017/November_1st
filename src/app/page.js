@@ -20,7 +20,7 @@ export default function Page() {
             display: "flex", flexDirection: "column"
         }}>
 
-            <Image src="/main_img_icon1.png" alt="logo" width={150} height={100} style={{position: "absolute", right: 0, top: 10, zIndex: -1}}/>
+            {/*<Image src="/main_img_icon1.png" alt="logo" width={150} height={100} style={{position: "absolute", right: 0, top: 10, zIndex: -1}}/>*/}
 
             <div style={{textAlign: "center", marginTop: "50px", fontSize: "26px", fontFamily: "Gowun Batang", letterSpacing: 1, textShadow: '0 0 5px #e1a1a1'}}>2025. 11. 01</div>
             <div style={{textAlign: "center", fontFamily: "Gowun Batang"}}>SATURDAY</div>
