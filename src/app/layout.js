@@ -14,8 +14,13 @@ export default function RootLayout({children}) {
             strategy="beforeInteractive"
         />
         <title>현준❤️지윤</title>
+
+        <meta property="og:type" content="website"/>
         <meta property="og:title" content="현준❤️지윤"/>
-        <meta property="og:image" content="/gallery/2.png"/>
+        <meta property="og:description" content="11월 1일, 저희의 결혼식에 초대합니다."/>
+        <meta property="og:image" content="/gallery/2.jpg"/>
+        <meta property="og:image:alt" content="11월 1일, 저희의 결혼식에 초대합니다."/>
+        <meta property="og:site_name" content="INVITATION"/>
     </head>
     <body>
     <ComingSoonTimer/>
