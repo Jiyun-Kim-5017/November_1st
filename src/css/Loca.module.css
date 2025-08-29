@@ -8,21 +8,22 @@
 
 .buttonBox {
     display: flex;
-    width: 300px;
-    max-width: 100%;
+    width: 80%;
+    min-width: 300px;
     justify-content: space-around;
-    margin-top: 10px;
+    margin: 10px 0;
 }
 
 .button {
-    width: 80px;
+    width: 84px;
     display: flex;
     justify-content: center;
     text-decoration: none;
     color: #000;
-    border: 1px solid #ddd;
-    padding: 5px 5px;
+    border: 4px solid #fff8f8;
+    padding: 5px;
     border-radius: 8px;
+    background: #fff2f2;
 }
 
 .buttonImg {
@@ -35,13 +36,15 @@
 }
 
 .infoTitle {
-    font-size: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     font-weight: bold;
-    margin-top: 8px;
+    margin: 12px 0 4px 0;
+    color: #777
 }
 
 .info {
-    font-size: 14px;
-    padding-left: 5px;
+    padding-left: 8px;
 }
 

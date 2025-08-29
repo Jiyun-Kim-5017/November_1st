@@ -27,6 +27,7 @@ html, body {
     font-family: 'GowunDodum-Regular', serif;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    font-size: 18px;
 }
 
 body {
@@ -79,18 +80,16 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 .title {
     font-family: "Gowun Batang", serif;
     letter-spacing: 1px;
-    font-size: 18px;
     font-weight: bold;
     margin-top: 70px;
 }
 
 .title.cal {
-    margin-top: 10px;
+    margin: 20px 0 10px 0;
 }
 
 .miniTitle {
     margin-bottom: 20px;
-    font-size: 14px;
     color: #4ab34a;
 }
 

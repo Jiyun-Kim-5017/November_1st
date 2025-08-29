@@ -15,6 +15,23 @@ const APP_STORES = {
     }
 };
 
+// URL 생성 함수들
+export const createNaverURLs = (destination) => ({
+    mobile: `nmap://route/public?dlat=${destination.lat}&dlng=${destination.lng}&dname=${encodeURIComponent(destination.name)}`,
+    web: `https://map.naver.com/p/directions/-/14126029.9633415,4518658.3911646,,1902387925,PLACE_POI/-/transit?c=15.00,0,0,0,dh`
+});
+
+export const createKakaoURLs = (destination) => ({
+    mobile: `kakaomap://route?ep=${destination.lat},${destination.lng}&by=PUBLICTRANSIT&en=${encodeURIComponent(destination.name)}`,
+    web: `https://m.map.kakao.com/scheme/route?ep=${destination.lat},${destination.lng}&en=${encodeURIComponent(destination.name)}`
+});
+
+export const createTmapURL = (destination) => 
+    `tmap://route?goalname=${encodeURIComponent(destination.name)}&goalx=${destination.lng}&goaly=${destination.lat}`;
+
+// 네이버 지도 API URL
+export const NAVER_MAP_API_URL = "https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=0hk8z6jh50";
+
 export const detectDevice = () => {
     if (typeof navigator === "undefined") return "desktop";
 
@@ -57,4 +74,30 @@ export const openAppWithFallback = (appSchemeUrl, appType) => {
     };
 
     document.addEventListener('visibilitychange', handleVisibilityChange);
+};
+
+// 통합 핸들러 함수들
+export const handleNaverNavigation = (destination, isMobile) => {
+    const urls = createNaverURLs(destination);
+    if (isMobile) {
+        openAppWithFallback(urls.mobile, "naver");
+    } else {
+        window.open(urls.web, "_blank");
+    }
+};
+
+export const handleKakaoNavigation = (destination, isMobile) => {
+    const urls = createKakaoURLs(destination);
+    if (isMobile) {
+        openAppWithFallback(urls.mobile, "kakao");
+    } else {
+        window.open(urls.web, "_blank");
+    }
+};
+
+export const handleTmapNavigation = (destination, isMobile) => {
+    if (isMobile) {
+        const url = createTmapURL(destination);
+        openAppWithFallback(url, "tmap");
+    }
 };

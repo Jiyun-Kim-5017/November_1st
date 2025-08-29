@@ -1,23 +1,53 @@
 "use client";
 
-import {useState} from "react";
+import styles from '@/css/Contact.module.css'
+import call from '@/../public/phone.png';
+import massage from '@/../public/email.png';
+import Image from "next/image";
 
 export default function Contact() {
-    const [openGroom, setOpenGroom] = useState(false);
-    const [openBride, setOpenBride] = useState(false);
-
-    return (<div>
-        <div onClick={() => setOpenGroom(!openGroom)}>신랑측</div>
-        {openGroom && <div>
-            <div>신랑 아버지</div>
-            <div>신랑 어머니</div>
-            <div>신랑</div>
-        </div>}
-        <div onClick={() => setOpenBride(!openBride)}>신부측</div>
-        {openBride && <div>
-            <div>신부 아버지</div>
-            <div>신부 어머니</div>
-            <div>신부</div>
-        </div>}
-    </div>);
+    return <div className={styles.contact}>
+        <div className={styles.list}>
+            <div>신랑 이현준</div>
+            <div className={styles.button}>
+                <Image src={call} alt="call" width={22} height={22}/>
+                <Image src={massage} alt="call" width={22} height={22}/>
+            </div>
+        </div>
+        <div className={styles.list}>
+            <div>신랑 아버지 이진구</div>
+            <div className={styles.button}>
+                <Image src={call} alt="call" width={22} height={22}/>
+                <Image src={massage} alt="call" width={22} height={22}/>
+            </div>
+        </div>
+        <div className={styles.list}>
+            <div>신랑 어머니 김정자</div>
+            <div className={styles.button}>
+                <Image src={call} alt="call" width={22} height={22}/>
+                <Image src={massage} alt="call" width={22} height={22}/>
+            </div>
+        </div>
+        <div className={styles.list}>
+            <div>신부 김지윤</div>
+            <div className={styles.button}>
+                <Image src={call} alt="call" width={22} height={22}/>
+                <Image src={massage} alt="call" width={22} height={22}/>
+            </div>
+        </div>
+        <div className={styles.list}>
+            <div>신부 아버지 김용회</div>
+            <div className={styles.button}>
+                <Image src={call} alt="call" width={22} height={22}/>
+                <Image src={massage} alt="call" width={22} height={22}/>
+            </div>
+        </div>
+        <div className={styles.list}>
+            <div>신부 어머니 홍은경</div>
+            <div className={styles.button}>
+                <Image src={call} alt="call" width={22} height={22}/>
+                <Image src={massage} alt="call" width={22} height={22}/>
+            </div>
+        </div>
+    </div>
 }

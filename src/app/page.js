@@ -1,19 +1,20 @@
 import Footer from "@/app/components/Footer";
 import Calendar from "@/app/components/Calendar";
 import IntroOverlay from "@/app/components/IntroOverlay";
-import ScrollLock from "@/app/ScrollLock";
+import ScrollLock from "@/util/ScrollLock";
 import HeartCursorEffect from "@/app/components/HeartCursorEffect";
 import Message from "@/app/components/Message";
 import Loca from "@/app/components/Loca";
 import Gallery from "@/app/components/Gallery";
-import Contact from "@/app/components/Contact";
 import Invitation from "@/app/components/Invitation";
+import Account from "@/app/components/Account";
 import Image from "next/image";
+import Contact from "@/app/components/Contact";
 
 export default function Page() {
     return (<>
         <HeartCursorEffect/>
-        <ScrollLock duration={2000}/>
+        {/*<ScrollLock duration={2000}/>*/}
 
         <main className="" style={{
             display: "flex", flexDirection: "column"
@@ -35,7 +36,7 @@ export default function Page() {
                     padding: "0 1rem", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", backgroundColor: "rgba(0,0,0,0.3)", color: "white"
                 }}>
                     <div className="title cal">WEDDING DAY</div>
-                    <div style={{fontSize: 17}}>2025년 11월 1일 토요일 | 오후 1시 50분</div>
+                    <div>2025년 11월 1일 토요일 | 오후 1시 50분</div>
                     <Calendar/>
                 </div>
             </div>
@@ -58,7 +59,7 @@ export default function Page() {
                 <div className="title">LOCATION</div>
                 <div className="miniTitle">오시는 길</div>
                 <div>서울 마포구 월드컵로 240 2층</div>
-                <div style={{fontSize: 14, color: '#aaa', marginBottom: 5}}>(월드컵경기장 서측)</div>
+                <div style={{color: '#aaa', marginBottom: 5}}>(월드컵경기장 서측)</div>
                 <div style={{marginBottom: 5}}>월드컵컨벤션 임페리얼블룸</div>
                 <Loca/>
             </div>
@@ -68,8 +69,14 @@ export default function Page() {
             }}>
                 <div className="title">CONTACT</div>
                 <div className="miniTitle">연락처</div>
-                <div style={{fontSize: 14, textAlign: "center", color: "#68a4d9", marginBottom: 10}}>참석이 어려우신 분들을 위해 기재하였습니다.<br/>너그러운 마음으로 양해 부탁드립니다.</div>
                 <Contact/>
+            </div>
+
+            <div className="" style={{
+                display: "flex", flexDirection: "column", alignItems: "center"
+            }}>
+                <div className="miniTitle">마음 전하실 곳</div>
+                <Account/>
             </div>
 
             <div className="" style={{

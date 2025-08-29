@@ -18,7 +18,7 @@ export default function Footer() {
             window.Kakao.Share.sendDefault({
                 objectType: 'feed',
                 content: {
-                    title: '지윤',
+                    title: '현준❤️지윤',
                     description: '11월 1일, 저희의 결혼식에 초대합니다.',
                     imageUrl: 'https://november-1st.vercel.app/opening_pic.jpg',
                     link: {
