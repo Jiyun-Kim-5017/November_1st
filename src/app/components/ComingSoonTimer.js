@@ -37,7 +37,7 @@ export default function ComingSoonTimer() {
         <div style={{
             width: '100vw',
             height: '100vh',
-            position: "fixed",
+            position: "relative",
             top: 0,
             left: 0,
             background: "center / cover no-repeat url('/card2.png')",
