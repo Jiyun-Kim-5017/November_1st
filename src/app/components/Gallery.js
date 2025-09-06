@@ -26,7 +26,7 @@ export default function Gallery() {
                 quality={100}
                 alt={`Gallery image ${index + 1}`}
                 className={styles.galleryImage}
-                priority={index <= 3}
+                priority
             />
         </SwiperSlide>)}
     </Swiper>;
