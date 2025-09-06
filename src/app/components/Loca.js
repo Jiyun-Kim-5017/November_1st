@@ -83,16 +83,16 @@ export default function Loca() {
                 티맵
             </a>}
         </div>
-        <div style={{width: '75%', minWidth: 250, color: '#575757'}}>
+        <div className={styles.guideLine}>
             <div className={styles.infoTitle}>
-                <Image src={train} alt="train" width={20} height={20} style={{marginRight: 3}}/>
+                <Image src={train} alt="train" width={20} height={20}/>
                 지하철
             </div>
             <div className={styles.info}>
                 <b style={{color: '#CD7C2F'}}>6호선</b> [월드컵경기장]역 2번 출구
             </div>
             <div className={styles.infoTitle}>
-                <Image src={bus} alt="train" width={20} height={20} style={{marginRight: 3}}/>
+                <Image src={bus} alt="train" width={20} height={20}/>
                 버스
             </div>
             <div className={styles.info}>[월드컵경기장 서측.문화비축기지]정류장</div>
@@ -100,7 +100,7 @@ export default function Loca() {
             <div className={styles.info} style={{color: 'rgb(38 189 86)', fontWeight: 'bold'}}>7019, 7715, 8777</div>
             <div className={styles.info} style={{color: 'rgb(251 15 15)', fontWeight: 'bold'}}>9711</div>
             <div className={styles.infoTitle}>
-                <Image src={car} alt="train" width={20} height={20} style={{marginRight: 3}}/>
+                <Image src={car} alt="train" width={20} height={20}/>
                 자가용
             </div>
             <div className={styles.info}>네비게이션에 [<span style={{color: '#000'}}>월드컵컨벤션</span>] 검색</div>

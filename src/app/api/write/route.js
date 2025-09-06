@@ -7,7 +7,7 @@ export async function POST(request) {
     const { name, password, message } = body;
 
     if (!name || !password || !message) {
-        return NextResponse.json({ error: '모든 항목을 입력해주세요.' }, { status: 400 });
+        return NextResponse.json({ error: '모든 항목을 입력해 주세요.' }, { status: 400 });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);

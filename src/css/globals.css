@@ -28,6 +28,8 @@ html, body {
     scrollbar-width: none;
     -ms-overflow-style: none;
     font-size: 18px;
+    user-select: none;
+    box-sizing: border-box;
 }
 
 body {
@@ -73,15 +75,12 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
     opacity: 0.9;
 }
 
-.section {
-
-}
-
 .title {
     font-family: "Gowun Batang", serif;
     letter-spacing: 1px;
     font-weight: bold;
-    margin-top: 70px;
+    margin-top: 90px;
+    font-size: 22px;
 }
 
 .title.cal {
@@ -91,6 +90,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 .miniTitle {
     margin-bottom: 20px;
     color: #4ab34a;
+    font-size: 16px;
 }
 
 

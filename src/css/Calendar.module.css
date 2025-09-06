@@ -1,11 +1,11 @@
 .calendar {
-    width: 95%;
-    max-width: 600px;
+    width: 90%;
+    max-width: 400px;
     padding: 10px;
     margin: 20px auto 40PX auto;
     border-radius: 10px;
     box-shadow: inset 0 0 16px 9px rgba(255, 255, 255, 0.1);
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .weekdays {
@@ -30,7 +30,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 46px;
+    height: 40px;
 }
 
 .true {

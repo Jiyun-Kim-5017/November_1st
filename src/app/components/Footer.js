@@ -1,5 +1,8 @@
 "use client"
 import {useEffect} from "react";
+import styles from "@/css/Footer.module.css";
+import Image from "next/image";
+import kakao from '@/../public/kakao.png';
 
 export default function Footer() {
 
@@ -20,7 +23,7 @@ export default function Footer() {
                 content: {
                     title: '현준❤️지윤',
                     description: '11월 1일, 저희의 결혼식에 초대합니다.',
-                    imageUrl: 'https://november-1st.vercel.app/opening_pic.jpg',
+                    imageUrl: 'https://november-1st.vercel.app/gallery/cover.jpg',
                     link: {
                         mobileWebUrl: 'https://november-1st.vercel.app',
                         webUrl: 'https://november-1st.vercel.app'
@@ -37,13 +40,8 @@ export default function Footer() {
         }
     };
 
-    return (<footer className="">
-        <button
-            onClick={shareKakao}
-            className=""
-        >
-            카카오톡 공유하기
-        </button>
-
+    return (<footer className={styles.footer}>
+        <Image src={kakao} alt="kakaoTalk" width={24} height={24}/>
+        <span onClick={shareKakao}>카카오톡 공유하기</span>
     </footer>)
 }

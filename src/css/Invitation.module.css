@@ -1,0 +1,36 @@
+.invitation {
+    padding: 3rem 2rem 2rem 2rem;
+    text-align: center;
+    word-break: keep-all;
+    background-color: rgba(0,0,0,0.3);
+    color: #fff;
+    font-size: 16px;
+}
+
+.invitation span {
+    font-weight: bold;
+}
+
+.spring {
+    color: #f0a1bf
+}
+
+.summer {
+    color: #4ab34a
+}
+
+.autumn {
+    color: #d68231
+}
+
+.winter {
+    color: #68a4d9
+}
+
+.host {
+    letter-spacing: 1px;
+}
+
+.firstHost {
+    padding-top: 40px;
+}

@@ -1,0 +1,16 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    background: #ececec;
+    margin-top: 40px;
+    font-size: 14px;
+    gap: 5px;
+}
+
+.footer img,
+.footer span {
+    cursor: pointer;
+}
