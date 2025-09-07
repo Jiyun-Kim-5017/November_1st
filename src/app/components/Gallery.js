@@ -7,7 +7,7 @@ import "swiper/css";
 import styles from "@/css/Gallery.module.css";
 
 export default function Gallery() {
-    const IMG_LIST = Array.from({ length: 25 });
+    const IMG_LIST = Array.from({length: 23});
 
     return <Swiper className={styles.swiperContainer}
                    effect={"coverflow"}
@@ -18,7 +18,7 @@ export default function Gallery() {
                    coverflowEffect={{
                        rotate: 40, stretch: -20, depth: 40, slideShadows: false
                    }} modules={[EffectCoverflow]}>
-        {IMG_LIST.map((num,index) => <SwiperSlide className={styles.swiperSlide} key={`slide-${index + 1}`}>
+        {IMG_LIST.map((num, index) => <SwiperSlide className={styles.swiperSlide} key={`slide-${index + 1}`}>
             <Image
                 src={`/gallery/${index + 1}.jpg`}
                 width={1200}

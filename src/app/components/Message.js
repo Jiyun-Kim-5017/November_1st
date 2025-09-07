@@ -73,11 +73,13 @@ export default function Message() {
             }),
         });
 
-        if (res.ok) {
+        if (res.status === 200) {
             fetchMessages();
             setDelModal(false);
-        } else {
+        } else if (res.status === 401) {
             alert("비밀번호가 틀렸습니다.");
+        } else {
+            alert("메세지를 삭제하지 못했습니다. 신부에게 문의해 주세요.")
         }
     }
 

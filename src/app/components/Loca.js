@@ -32,8 +32,8 @@ export default function Loca() {
     const initMap = useCallback(() => {
         let map = new naver.maps.Map("map", {
             center: new naver.maps.LatLng(37.5682885, 126.8972730), 
-            zoom: 16, 
-            minZoom: 14, 
+            zoom: 15,
+            minZoom: 13,
             zoomControl: true, 
             zoomControlOptions: {
                 position: naver.maps.Position.TOP_RIGHT
