@@ -8,10 +8,7 @@ export default function RootLayout({children}) {
         <meta charSet="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
         <link rel="icon" type="image/svg+xml" href="/favicon.ico"/>
-        <Script
-            src="https://developers.kakao.com/sdk/js/kakao.js"
-            strategy="beforeInteractive"
-        />
+        <Script src="../util/kakao.min.js"/>
         <title>현준❤️지윤</title>
 
         <meta property="og:type" content="website"/>

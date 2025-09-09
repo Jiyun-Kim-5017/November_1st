@@ -5,7 +5,7 @@ import styles from "@/css/FlowerImg.module.css";
 import flower1 from '@/../public/main_img_icon1.png';
 import flower2 from '@/../public/main_img_icon2.png';
 
-export default function FlowerImg({ num }) {
+export default function FlowerImg({num}) {
     return (
         num === 1 ? (
             <Image
@@ -14,6 +14,7 @@ export default function FlowerImg({ num }) {
                 width={150}
                 height={100}
                 className={styles.flowerRight}
+                priority
             />
         ) : (
             <Image
@@ -22,6 +23,7 @@ export default function FlowerImg({ num }) {
                 width={120}
                 height={96}
                 className={styles.flowerLeft}
+                priority
             />
         )
     );
