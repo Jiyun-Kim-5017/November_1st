@@ -23,7 +23,7 @@ export default function Footer() {
                 content: {
                     title: '현준❤️지윤',
                     description: '11월 1일, 저희의 결혼식에 초대합니다.',
-                    imageUrl: 'https://november-1st.vercel.app/gallery/cover.jpg',
+                    imageUrl: 'https://november-1st.vercel.app/gallery/cover.png',
                     link: {
                         mobileWebUrl: 'https://november-1st.vercel.app',
                         webUrl: 'https://november-1st.vercel.app'
