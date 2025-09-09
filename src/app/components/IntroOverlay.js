@@ -1,9 +1,10 @@
 'use client';
-import Image from 'next/image';
+
 import {useEffect, useRef, useState} from "react";
+import Image from 'next/image';
 import styles from '@/css/IntroOverlay.module.css';
-import opening from '@/../public/opening.jpg';
-import openingPic from '@/../public/opening_pic.jpg';
+import opening from '@/../public/opening.png';
+import openingPic from '@/../public/opening_pic.png';
 
 export default function IntroOverlay() {
     const images = [opening, openingPic];
@@ -13,13 +14,13 @@ export default function IntroOverlay() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setCurrentImageIndex(1);
-        }, 1000);
+        }, 400);
 
         const imgTimer = setTimeout(() => {
             if (imgRef.current) {
                 imgRef.current.style.display = 'none';
             }
-        }, 2000);
+        }, 1200);
 
         return () => {
             clearTimeout(timer);
@@ -30,12 +31,7 @@ export default function IntroOverlay() {
     return (
         <div className={styles.container}>
             {images.map((img, idx) => (
-                <div
-                    key={idx}
-                    className={`${styles.imageContainer} ${
-                        currentImageIndex === idx ? styles.visible : styles.hidden
-                    }`}
-                >
+                <div key={idx} className={`${styles.imageContainer} ${currentImageIndex === idx ? styles.visible : styles.hidden}`}>
                     <Image
                         ref={idx === 0 ? imgRef : null}
                         className={styles.image}
@@ -46,8 +42,8 @@ export default function IntroOverlay() {
                         blurDataURL={img.blurDataURL}
                         width={0}
                         height={0}
-                        style={{ width: '100%', height: '100%' }}
                         quality={100}
+                        priority
                     />
                 </div>
             ))}

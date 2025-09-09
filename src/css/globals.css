@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
 
 @font-face {
@@ -11,10 +8,38 @@
 }
 
 @font-face {
-    font-family: 'Cafe24Lovingu';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/Cafe24Lovingu.woff2') format('woff2');
+    font-family: 'Aggravo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aggravo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroM.woff') format('woff');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aggravo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GapyeongHanseokbongBigBrush';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/GapyeongHanseokbong-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JoseonBoldMyongjo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunKm.woff') format('woff');
     font-weight: normal;
-    font-style: normal;
+    font-display: swap;
 }
 
 :root {
@@ -73,24 +98,6 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
     transform: translate(-50%, -50%);
     z-index: 9999;
     opacity: 0.9;
-}
-
-.title {
-    font-family: "Gowun Batang", serif;
-    letter-spacing: 1px;
-    font-weight: bold;
-    margin-top: 90px;
-    font-size: 22px;
-}
-
-.title.cal {
-    margin: 20px 0 10px 0;
-}
-
-.miniTitle {
-    margin-bottom: 20px;
-    color: #4ab34a;
-    font-size: 16px;
 }
 
 

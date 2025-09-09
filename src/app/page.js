@@ -10,79 +10,64 @@ import Invitation from "@/app/components/Invitation";
 import Account from "@/app/components/Account";
 import Contact from "@/app/components/Contact";
 import FlowerImg from "@/app/components/FlowerImg";
+import styles from "@/css/Page.module.css";
 
 export default function Page() {
     return (<>
         <HeartCursorEffect/>
-        <ScrollLock duration={1000}/>
+        <ScrollLock duration={800}/>
 
-        <main className="" style={{
-            display: "flex", flexDirection: "column", maxWidth: 600, margin: "0 auto", boxShadow: "0 0 8px 5px #eee"
-        }}>
+        <main className={styles.main}>
             <FlowerImg num={1}/>
 
-            <div style={{textAlign: "center", marginTop: "50px", fontSize: "26px", fontFamily: "Gowun Batang", letterSpacing: 1, textShadow: '0 0 5px #e1a1a1'}}>2025. 11. 01</div>
-            <div style={{textAlign: "center", fontFamily: "Gowun Batang"}}>SATURDAY</div>
+            <div className={styles.date}>2025. 11. 01</div>
+            <div>SATURDAY</div>
             <IntroOverlay/>
-            <div style={{textAlign: "center", marginBottom: "30px", fontSize: "20px", fontFamily: "Gowun Batang", letterSpacing: 3}}>
+            <div className={styles.name}>
                 이현준 | 김지윤
                 <FlowerImg num={2}/>
             </div>
-            <div className="section" style={{background: "top center / cover no-repeat url('/background.jpg')"}}>
+            <div style={{background: "top center / cover no-repeat url('/background.jpg')"}}>
                 <Invitation/>
 
-                <div className="" style={{
-                    padding: "0 1rem", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", backgroundColor: "rgba(0,0,0,0.3)", color: "white"
-                }}>
-                    <div className="title cal">WEDDING DAY</div>
-                    <div style={{margin: "10px 0 0 0"}}>2025년 11월 1일 토요일 | 오후 1시 50분</div>
+                <div className={`${styles.calSection} ${styles.section}`}>
+                    <div className={`${styles.title} ${styles.cal}`}>WEDDING DAY</div>
+                    <div>2025년 11월 1일 토요일 | 오후 1시 50분</div>
                     <Calendar/>
                 </div>
             </div>
 
-            <div className="" style={{
-                display: "flex", flexDirection: "column", alignItems: "center"
-            }}>
-                <div className="title">GALLERY</div>
-                <div className="miniTitle">갤러리</div>
-                <div style={{
-                    width: "100%", paddingTop: '1rem', paddingBottom: '1rem', background: "center / cover no-repeat url('/card3.png')",
-                }}>
+            <div className={styles.section}>
+                <div className={styles.title}>GALLERY</div>
+                <div className={styles.subTitle}>갤러리</div>
+                <div className={styles.gal} style={{background: "center / cover no-repeat url('/card3.png')"}}>
                     <Gallery/>
                 </div>
             </div>
 
-            <div className="" style={{
-                display: "flex", flexDirection: "column", alignItems: "center"
-            }}>
-                <div className="title">LOCATION</div>
-                <div className="miniTitle">오시는 길</div>
+            <div className={styles.section}>
+                <div className={styles.title}>LOCATION</div>
+                <div className={styles.subTitle}>오시는 길</div>
                 <div style={{fontSize: 17}}>서울 마포구 월드컵로 240 2층</div>
                 <div style={{color: '#aaa', marginBottom: 5, fontSize: 15}}>(월드컵경기장 서측)</div>
                 <div style={{marginBottom: 5, fontSize: 17}}>월드컵컨벤션 임페리얼블룸</div>
                 <Loca/>
             </div>
 
-            <div className="" style={{
-                display: "flex", flexDirection: "column", alignItems: "center"
-            }}>
-                <div className="title">CONTACT</div>
-                <div className="miniTitle">연락처</div>
+            <div className={styles.section}>
+                <div className={styles.title}>CONTACT</div>
+                <div className={styles.subTitle}>연락처</div>
                 <Contact/>
             </div>
 
-            <div className="" style={{
-                display: "flex", flexDirection: "column", alignItems: "center"
-            }}>
-                <div className="miniTitle">마음 전하실 곳</div>
+            <div className={styles.section}>
+                <div className={styles.subTitle}>마음 전하실 곳</div>
                 <Account/>
             </div>
 
-            <div className="" style={{
-                display: "flex", flexDirection: "column", alignItems: "center"
-            }}>
-                <div className="title">MESSAGE</div>
-                <div className="miniTitle">축하 메세지</div>
+            <div className={styles.section}>
+                <div className={styles.title}>MESSAGE</div>
+                <div className={styles.subTitle}>축하 메세지</div>
                 <Message/>
             </div>
             <Footer/>

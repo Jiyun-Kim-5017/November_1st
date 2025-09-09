@@ -3,8 +3,7 @@
 import styles from '@/css/Invitation.module.css'
 
 export default function Invitation() {
-    return (<div
-        className={styles.invitation}>
+    return (<div className={styles.invitation}>
         <p><span className={styles.spring}>봄</span>처럼 포근하고</p>
         <p><span className={styles.summer}>여름</span>처럼 뜨겁고</p>
         <p><span className={styles.autumn}>가을</span>처럼 충만하고</p>

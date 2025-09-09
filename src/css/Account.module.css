@@ -9,7 +9,7 @@
     width: 75%;
     min-width: 280px;
     max-width: 400px;
-    border: 4px solid #fff8f8;
+    border: 4px solid #fff0f0;
     padding: 5px 10px;
     margin-bottom: 10px;
     border-radius: 8px;
@@ -40,8 +40,13 @@
     border-top: 1px solid #dadada
 }
 
-.listItem span:last-child {
-    margin-left: 2px;
+.listItem div div:first-child {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.listItem div:last-child {
+    margin-left: 4px;
 }
 
 .copyBtn {
@@ -50,6 +55,7 @@
     border: 1px solid #dadada;
     border-radius: 10px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .copyBtn img {

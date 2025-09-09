@@ -24,7 +24,7 @@
     padding: 3px 5px;
     border-radius: 8px;
     background: #fff2f2;
-    font-size: 16px;
+    font-size: 17px;
 }
 
 .buttonImg {
@@ -58,5 +58,28 @@
 
 .info {
     padding-left: 8px;
+}
+
+.info span {
+    color: #000;
+}
+
+.trainColor {
+    color: #CD7C2F;
+}
+
+.blueBus {
+    color: #286ABF;
+    font-weight: bold;
+}
+
+.greenBus {
+    color: #26BD56;
+    font-weight: bold;
+}
+
+.redBus {
+    color: #FB0F0F;
+    font-weight: bold;
 }
 

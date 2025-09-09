@@ -53,7 +53,7 @@ export default function HeartCursorEffect() {
                 cursorRef.current.style.left = `${e.clientX}px`;
                 cursorRef.current.style.top = `${e.clientY}px`;
 
-                if (Math.random() < 0.2) { // 5% 확률로 변경
+                if (Math.random() < 0.2) {
                     cursorRef.current.src = getRandomHeartImage();
                 }
             }

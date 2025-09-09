@@ -1,7 +1,7 @@
 "use client"
 import {useEffect} from "react";
-import styles from "@/css/Footer.module.css";
 import Image from "next/image";
+import styles from "@/css/Footer.module.css";
 import kakao from '@/../public/kakao.png';
 
 export default function Footer() {

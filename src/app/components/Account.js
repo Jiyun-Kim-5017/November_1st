@@ -1,11 +1,11 @@
 "use client";
 
 import {useState} from "react";
+import Image from "next/image";
 import styles from "@/css/Account.module.css";
 import open from "@/../public/open.png";
 import close from "@/../public/close.png";
 import copy from "@/../public/copy.png";
-import Image from "next/image";
 
 export default function Account() {
     const [openGroom, setOpenGroom] = useState(false);
@@ -40,22 +40,34 @@ export default function Account() {
                        onClick={() => setOpenGroom(!openGroom)}/>}
             {openGroom && <div className={styles.openList}>
                 <div className={styles.listItem}>
-                    <div><span>이진구</span><br/><span>우체국 102608-02-186201</span></div>
+                    <div>
+                        <div>이진구</div>
+                        <div>우체국 102608-02-186201</div>
+                    </div>
                     <div className={styles.copyBtn} onClick={() => handleCopy("우체국 10260802186201")}>
                         <Image src={copy} alt="copy" width={14} height={14}/>
-                        복사</div>
+                        복사
+                    </div>
                 </div>
                 <div className={styles.listItem}>
-                    <div><span>김정자</span><br/><span>기업 258-100825-01-018</span></div>
+                    <div>
+                        <div>김정자</div>
+                        <div>기업 258-100825-01-018</div>
+                    </div>
                     <div className={styles.copyBtn} onClick={() => handleCopy("기업 25810082501018")}>
                         <Image src={copy} alt="copy" width={14} height={14}/>
-                        복사</div>
+                        복사
+                    </div>
                 </div>
                 <div className={styles.listItem}>
-                    <div><span>이현준</span><br/><span>기업 220-069658-01-011</span></div>
+                    <div>
+                        <div>이현준</div>
+                        <div>기업 220-069658-01-011</div>
+                    </div>
                     <div className={styles.copyBtn} onClick={() => handleCopy("기업 22006965801011")}>
                         <Image src={copy} alt="copy" width={14} height={14}/>
-                        복사</div>
+                        복사
+                    </div>
                 </div>
             </div>}
         </div>
@@ -67,24 +79,36 @@ export default function Account() {
                        onClick={() => setOpenBride(!openBride)}/>}
             {openBride && <div className={styles.openList}>
                 <div className={styles.listItem}>
-                    <div><span>김용회</span><br/><span>sc제일 403-20-486623</span></div>
+                    <div>
+                        <div>김용회</div>
+                        <div>sc제일 403-20-486623</div>
+                    </div>
                     <div className={styles.copyBtn} onClick={() => handleCopy("sc제일 40320486623")}>
                         <Image src={copy} alt="copy" width={14} height={14}/>
-                        복사</div>
+                        복사
+                    </div>
                 </div>
 
                 <div className={styles.listItem}>
-                    <div><span>홍은경</span><br/><span>우리 1002-251-593587</span></div>
+                    <div>
+                        <div>홍은경</div>
+                        <div>우리 1002-251-593587</div>
+                    </div>
                     <div className={styles.copyBtn} onClick={() => handleCopy("우리 1002251593587")}>
                         <Image src={copy} alt="copy" width={14} height={14}/>
-                        복사</div>
+                        복사
+                    </div>
                 </div>
 
                 <div className={styles.listItem}>
-                    <div><span>김지윤</span><br/><span>기업 600-055679-01-019</span></div>
+                    <div>
+                        <div>김지윤</div>
+                        <div>기업 600-055679-01-019</div>
+                    </div>
                     <div className={styles.copyBtn} onClick={() => handleCopy("기업 60005567901019")}>
                         <Image src={copy} alt="copy" width={14} height={14}/>
-                        복사</div>
+                        복사
+                    </div>
                 </div>
             </div>}
         </div>
