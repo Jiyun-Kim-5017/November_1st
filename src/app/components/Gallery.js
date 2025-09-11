@@ -1,6 +1,6 @@
 "use client";
 
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
 import Image from "next/image";
 import {EffectCoverflow} from "swiper/modules";
@@ -15,16 +15,14 @@ export default function Gallery() {
     });
     const IMG_LIST = Array.from({length: 24});
 
+    useEffect(() => {
+        document.body.classList.toggle("scrollable", !openOverlay.show);
+    }, [openOverlay]);
+
     const handleOverlayClick = (e) => {
         if (e.target === e.currentTarget) {
             setOpenOverlay({show: false, idx: 0});
-            document.body.classList.add('scrollable');
         }
-    };
-
-    const closeOverlay = () => {
-        setOpenOverlay({show: false, idx: 0});
-        document.body.classList.add('scrollable');
     };
 
     return <>
@@ -57,7 +55,7 @@ export default function Gallery() {
             <div className={styles.overlayContainer}>
                 <Image
                     className={styles.closeOverlay}
-                    onClick={closeOverlay}
+                    onClick={() => setOpenOverlay({show: false, idx: 0})}
                     src={close}
                     alt="close"
                     width={20}

@@ -25,6 +25,12 @@ export default function Message() {
         document.body.classList.toggle("scrollable", !(newModal || delModal));
     }, [newModal, delModal]);
 
+    const handleOverlayClick = (e) => {
+        if (e.target === e.currentTarget) {
+            closeModal();
+        }
+    };
+
     async function fetchMessages() {
         const res = await fetch("api/list");
         setIsLoading(true);
@@ -129,7 +135,7 @@ export default function Message() {
             </button>
 
             {(newModal || delModal) && (
-                <div className={styles.modalOverlay}>
+                <div className={styles.modalOverlay} onClick={handleOverlayClick}>
                     {newModal && (
                         <div className={styles.modalContent}>
                             <div className={styles.modlTitle}>

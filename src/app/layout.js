@@ -22,7 +22,7 @@ export default function RootLayout({children}) {
 
         <link rel="preload" href="/background.jpg" as="image" />
     </head>
-    <body>
+    <body style={{cursor: "url('/heart1.png'), none"}}>
     {children}
     </body>
     </html>)

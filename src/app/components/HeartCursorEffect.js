@@ -58,7 +58,7 @@ export default function HeartCursorEffect() {
                 }
             }
 
-            if (now - lastHeartTimeRef.current > 150) {
+            if (now - lastHeartTimeRef.current > 300) {
                 lastHeartTimeRef.current = now;
                 createFloatingHeart(e.clientX, e.clientY);
             }
