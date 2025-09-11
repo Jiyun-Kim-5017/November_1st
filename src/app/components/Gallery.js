@@ -13,7 +13,7 @@ export default function Gallery() {
         show: false,
         idx: 0,
     });
-    const IMG_LIST = Array.from({length: 24});
+    const IMG_LIST = Array.from({length: 26});
 
     useEffect(() => {
         document.body.classList.toggle("scrollable", !openOverlay.show);
