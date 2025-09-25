@@ -1,45 +1,126 @@
 "use client";
 
 import Image from "next/image";
-import {useEffect, useState} from "react";
+import {useState} from "react";
+import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import styles from "@/css/Message.module.css";
 import heart from "@/../public/4.png";
 import close from "@/../public/x.png";
-import loading from "@/../public/loading.gif";
+
+const messagesAPI = {
+    getMessages: async () => {
+        const res = await fetch("/api/list");
+        if (!res.ok) throw new Error("Failed to fetch messages");
+        return res.json();
+    },
+
+    createMessage: async (data) => {
+        const res = await fetch("/api/write", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(data),
+        });
+        if (!res.ok) {
+            if (res.status === 401) throw new Error("PASSWORD_MISMATCH");
+            throw new Error("CREATE_FAILED");
+        }
+        return res.json();
+    },
+
+    updateMessage: async (data) => {
+        const res = await fetch("/api/update", {
+            method: "PUT",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(data),
+        });
+        if (!res.ok) {
+            if (res.status === 401) throw new Error("PASSWORD_MISMATCH");
+            throw new Error("UPDATE_FAILED");
+        }
+        return res.json();
+    },
+
+    deleteMessage: async ({id, password}) => {
+        const res = await fetch("/api/delete", {
+            method: "DELETE",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({id, password}),
+        });
+        if (!res.ok) {
+            if (res.status === 401) throw new Error("PASSWORD_MISMATCH");
+            throw new Error("DELETE_FAILED");
+        }
+        return res.json();
+    },
+};
 
 export default function Message() {
-    const [messages, setMessages] = useState([]);
     const [newModal, setNewModal] = useState(false);
     const [delModal, setDelModal] = useState(false);
     const [delID, setDelID] = useState(null);
     const [delPassword, setDelPassword] = useState("");
     const [editMode, setEditMode] = useState(false);
     const [editingMessage, setEditingMessage] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(() => {
-        fetchMessages();
-    }, []);
+    const queryClient = useQueryClient();
 
-    useEffect(() => {
-        document.body.classList.toggle("scrollable", !(newModal || delModal));
-    }, [newModal, delModal]);
+    const {
+        data: messages = [],
+        error,
+    } = useQuery({
+        queryKey: ["messages"],
+        queryFn: messagesAPI.getMessages,
+        staleTime: 1000 * 60 * 5, // 5분간 fresh 상태 유지
+        refetchOnWindowFocus: true, // 창 포커스시 자동 refetch
+    });
 
-    const handleOverlayClick = (e) => {
-        if (e.target === e.currentTarget) {
+    const messageUpsertMutation = useMutation({
+        mutationFn: (data) => {
+            return editMode
+                ? messagesAPI.updateMessage({...data, id: editingMessage.id})
+                : messagesAPI.createMessage(data);
+        },
+        onSuccess: () => {
+            queryClient.invalidateQueries({queryKey: ["messages"]});
             closeModal();
-        }
-    };
+        },
+        onError: (error) => {
+            if (error.message === "PASSWORD_MISMATCH") {
+                alert("비밀번호가 일치하지 않습니다.");
+            } else {
+                alert(`메세지 ${editMode ? "수정" : "등록"}에 실패했습니다.`);
+            }
+        },
+    });
 
-    async function fetchMessages() {
-        const res = await fetch("api/list");
-        setIsLoading(true);
-        if (res.ok) {
-            const data = await res.json();
-            setMessages(data);
-            setIsLoading(false);
-        }
-    }
+    const deleteMutation = useMutation({
+        mutationFn: messagesAPI.deleteMessage,
+        onMutate: async ({id}) => {
+            await queryClient.cancelQueries({queryKey: ["messages"]});
+            const previousMessages = queryClient.getQueryData(["messages"]);
+
+            queryClient.setQueryData(["messages"], (old) =>
+                old?.filter(msg => msg.id !== id) || [],
+            );
+
+            return {previousMessages};
+        },
+        onSuccess: () => {
+            closeModal();
+        },
+        onError: (error, variables, context) => {
+            queryClient.setQueryData(["messages"], context.previousMessages);
+
+            if (error.message === "PASSWORD_MISMATCH") {
+                alert("비밀번호가 일치하지 않습니다.");
+            } else {
+                alert("메세지를 삭제하지 못했습니다. 신부에게 문의해 주세요.");
+            }
+        },
+        onSettled: () => {
+            queryClient.invalidateQueries({queryKey: ["messages"]});
+        },
+    });
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -50,43 +131,14 @@ export default function Message() {
             return alert("모든 항목을 입력해 주세요.");
         }
 
-        const url = editMode ? "/api/update" : "/api/write";
-        const body = editMode ? {...data, id: editingMessage.id} : data;
-
-        const res = await fetch(url, {
-            method: editMode ? "PUT" : "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(body),
-        });
-
-        if (res.ok) {
-            fetchMessages();
-            closeModal();
-        } else if (res.status === 401) {
-            alert("비밀번호가 일치하지 않습니다.");
-        } else {
-            alert(`메세지 ${editMode ? '수정' : '등록'}에 실패했습니다.`);
-        }
+        messageUpsertMutation.mutate(data);
     }
 
     async function handleDelete(e) {
         e.preventDefault();
         if (!delPassword) return alert("비밀번호를 입력해 주세요.");
 
-        const res = await fetch("/api/delete", {
-            method: "DELETE",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({id: delID, password: delPassword}),
-        });
-
-        if (res.status === 200) {
-            fetchMessages();
-            closeModal();
-        } else if (res.status === 401) {
-            alert("비밀번호가 틀렸습니다.");
-        } else {
-            alert("메세지를 삭제하지 못했습니다. 신부에게 문의해 주세요.");
-        }
+        deleteMutation.mutate({id: delID, password: delPassword});
     }
 
     const openEditModal = (msg) => {
@@ -103,10 +155,26 @@ export default function Message() {
         setEditingMessage(null);
     };
 
+    const handleOverlayClick = (e) => {
+        if (e.target === e.currentTarget) {
+            closeModal();
+        }
+    };
+
+    if (error) {
+        return (
+            <div className={styles.errorMessage}>
+                메시지를 불러오는데 실패했습니다.
+                <button onClick={() => queryClient.invalidateQueries({queryKey: ["messages"]})}>
+                    다시 시도
+                </button>
+            </div>
+        );
+    }
+
     return (
         <>
             <div className={styles.messageList}>
-                {isLoading && <Image className={styles.loading} src={loading} alt="loading" width={40} height={40}/>}
                 {messages.map(msg => (
                     <div key={msg.id} className={styles.message}>
                         <div className={styles.messageTitle}>
@@ -125,12 +193,15 @@ export default function Message() {
                         </div>
                         <div className={styles.messageContent}>{msg.message}</div>
                         <div>
-                            <button onClick={() => openEditModal(msg)}>수정</button>
+                            <button onClick={() => openEditModal(msg)} disabled={messageUpsertMutation.isPending}>
+                                수정
+                            </button>
                         </div>
                     </div>
                 ))}
             </div>
-            <button className={styles.openButton} onClick={() => setNewModal(true)}>
+
+            <button className={styles.openButton} onClick={() => setNewModal(true)} disabled={messageUpsertMutation.isPending}>
                 메세지 남기기
             </button>
 
@@ -139,7 +210,7 @@ export default function Message() {
                     {newModal && (
                         <div className={styles.modalContent}>
                             <div className={styles.modlTitle}>
-                                <div>{editMode ? '메세지 수정' : '축하 메시지 작성'}</div>
+                                <div>{editMode ? "메세지 수정" : "축하 메시지 작성"}</div>
                                 <div onClick={closeModal}>
                                     <Image src={close} alt="close" width={14} height={14}/>
                                 </div>
@@ -151,11 +222,17 @@ export default function Message() {
                                         name="name"
                                         autoComplete="off"
                                         defaultValue={editMode ? editingMessage?.name : ""}
+                                        disabled={messageUpsertMutation.isPending}
                                     />
                                 </div>
                                 <div className={styles.modalInput}>
                                     <div>비밀번호</div>
-                                    <input name="password" type="password" autoComplete="off"/>
+                                    <input
+                                        name="password"
+                                        type="password"
+                                        autoComplete="off"
+                                        disabled={messageUpsertMutation.isPending}
+                                    />
                                 </div>
                                 <div className={styles.modalInput}>
                                     <div>축하 메세지</div>
@@ -164,9 +241,12 @@ export default function Message() {
                                         name="message"
                                         autoComplete="off"
                                         defaultValue={editMode ? editingMessage?.message : ""}
+                                        disabled={messageUpsertMutation.isPending}
                                     />
                                 </div>
-                                <button className={styles.modalBtn} type="submit">{editMode ? '수정' : '등록'}</button>
+                                <button className={styles.modalBtn} type="submit" disabled={messageUpsertMutation.isPending}>
+                                    {messageUpsertMutation.isPending ? (editMode ? "수정" : "등록") + " 중..." : (editMode ? "수정" : "등록")}
+                                </button>
                             </form>
                         </div>
                     )}
@@ -186,9 +266,12 @@ export default function Message() {
                                         onChange={e => setDelPassword(e.target.value)}
                                         type="password"
                                         autoComplete="off"
+                                        disabled={deleteMutation.isPending}
                                     />
                                 </div>
-                                <button className={styles.modalBtn} type="submit">삭제</button>
+                                <button className={styles.modalBtn} type="submit" disabled={deleteMutation.isPending}>
+                                    {deleteMutation.isPending ? "삭제 중..." : "삭제"}
+                                </button>
                             </form>
                         </div>
                     )}

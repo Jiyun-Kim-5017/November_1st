@@ -1,5 +1,6 @@
 import "@/css/globals.css";
-import Script from 'next/script'
+import Script from "next/script";
+import QueryProvider from "./components/QueryProvider";
 
 export default function RootLayout({children}) {
 
@@ -15,15 +16,17 @@ export default function RootLayout({children}) {
         <meta property="og:title" content="현준❤️지윤"/>
         <meta property="og:description" content="11월 1일, 저희의 결혼식에 초대합니다."/>
         <meta property="og:image" content="/gallery/cover.png"/>
-        <meta property="og:image:width" content="1000" />
-        <meta property="og:image:height" content="1000" />
+        <meta property="og:image:width" content="1000"/>
+        <meta property="og:image:height" content="1000"/>
         <meta property="og:image:alt" content="11월 1일, 저희의 결혼식에 초대합니다."/>
         <meta property="og:site_name" content="INVITATION"/>
 
-        <link rel="preload" href="/background.jpg" as="image" />
+        <link rel="preload" href="/background.jpg" as="image"/>
     </head>
     <body style={{cursor: "url('/heart1.png'), none"}}>
-    {children}
+    <QueryProvider>
+        {children}
+    </QueryProvider>
     </body>
-    </html>)
+    </html>);
 }
