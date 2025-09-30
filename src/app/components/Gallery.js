@@ -47,6 +47,9 @@ export default function Gallery() {
                         setOpenOverlay({show: true, idx: index});
                         document.body.classList.remove('scrollable');
                     }}
+                    priority={index < 3}
+                    placeholder="blur"
+                    blurDataURL={`/gallery/${index + 1}.jpg`}
                 />
             </SwiperSlide>)}
         </Swiper>
