@@ -38,18 +38,15 @@ export default function Gallery() {
             {IMG_LIST.map((num, index) => <SwiperSlide className={styles.swiperSlide} key={`slide-${index + 1}`}>
                 <Image
                     src={`/gallery/${index + 1}.jpg`}
-                    width={1200}
-                    height={1800}
-                    quality={100}
+                    width={600}
+                    height={900}
+                    quality={90}
                     alt={`Gallery image ${index + 1}`}
                     className={styles.galleryImage}
                     onClick={() => {
                         setOpenOverlay({show: true, idx: index});
                         document.body.classList.remove('scrollable');
                     }}
-                    priority={index < 3}
-                    placeholder="blur"
-                    blurDataURL={`/gallery/${index + 1}.jpg`}
                 />
             </SwiperSlide>)}
         </Swiper>

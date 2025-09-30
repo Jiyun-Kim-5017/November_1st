@@ -56,6 +56,13 @@
 .gal {
     width: 100%;
     padding: 1rem 0;
+    text-align: center;
+}
+
+.gal p {
+    margin-bottom: 0;
+    font-size: 13px;
+    color: #68a4d9;
 }
 
 .subTitle {

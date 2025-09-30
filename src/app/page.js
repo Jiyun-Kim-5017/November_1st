@@ -42,6 +42,7 @@ export default function Page() {
                 <div className={styles.subTitle}>갤러리</div>
                 <div className={styles.gal} style={{background: "center / cover no-repeat url('/card3.png')"}}>
                     <Gallery/>
+                    <p>사진을 클릭하면 크게 보실 수 있습니다.</p>
                 </div>
             </div>
 

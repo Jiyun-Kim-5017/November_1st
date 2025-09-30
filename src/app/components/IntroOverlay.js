@@ -40,8 +40,8 @@ export default function IntroOverlay() {
                         sizes="100%"
                         placeholder="blur"
                         blurDataURL={img.blurDataURL}
-                        width={1500}
-                        height={1800}
+                        width={900}
+                        height={1200}
                         quality={90}
                         priority
                     />
