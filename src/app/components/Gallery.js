@@ -57,6 +57,7 @@ export default function Gallery() {
                     onClick={() => setOpenOverlay({show: false, idx: 0})}
                     src={close}
                     alt="close"
+                    priority
                     width={20}
                     height={20}
                 />
