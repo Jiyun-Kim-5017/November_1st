@@ -43,7 +43,6 @@ export default function Gallery() {
                     quality={100}
                     alt={`Gallery image ${index + 1}`}
                     className={styles.galleryImage}
-                    priority
                     onClick={() => {
                         setOpenOverlay({show: true, idx: index});
                         document.body.classList.remove('scrollable');
