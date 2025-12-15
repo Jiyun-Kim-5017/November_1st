@@ -42,7 +42,6 @@ export default function IntroOverlay() {
                         blurDataURL={img.blurDataURL}
                         width={900}
                         height={1200}
-                        quality={90}
                         priority
                     />
                 </div>

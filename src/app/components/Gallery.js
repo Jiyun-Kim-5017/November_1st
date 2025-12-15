@@ -40,7 +40,6 @@ export default function Gallery() {
                     src={`/gallery/${index + 1}.jpg`}
                     width={600}
                     height={900}
-                    quality={90}
                     alt={`Gallery image ${index + 1}`}
                     className={styles.galleryImage}
                     onClick={() => {
@@ -68,7 +67,6 @@ export default function Gallery() {
                                 src={`/gallery/${index + 1}.jpg`}
                                 width={1200}
                                 height={1800}
-                                quality={100}
                                 alt={`Gallery image ${index + 1}`}
                                 className={styles.overlayImg}
                             />
