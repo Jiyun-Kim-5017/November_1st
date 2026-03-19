@@ -184,6 +184,7 @@ export default function Message() {
                                 src={close}
                                 alt="delete"
                                 onClick={() => {
+                                    return;
                                     setDelModal(true);
                                     setDelID(msg.id);
                                 }}
@@ -193,7 +194,10 @@ export default function Message() {
                         </div>
                         <div className={styles.messageContent}>{msg.message}</div>
                         <div>
-                            <button onClick={() => openEditModal(msg)} disabled={messageUpsertMutation.isPending}>
+                            <button onClick={() => {
+                                return;
+                                openEditModal(msg)
+                            }} disabled={messageUpsertMutation.isPending}>
                                 수정
                             </button>
                         </div>
@@ -215,39 +219,40 @@ export default function Message() {
                                     <Image src={close} alt="close" width={14} height={14}/>
                                 </div>
                             </div>
-                            <form onSubmit={handleSubmit}>
-                                <div className={styles.modalInput}>
-                                    <div>이름</div>
-                                    <input
-                                        name="name"
-                                        autoComplete="off"
-                                        defaultValue={editMode ? editingMessage?.name : ""}
-                                        disabled={messageUpsertMutation.isPending}
-                                    />
-                                </div>
-                                <div className={styles.modalInput}>
-                                    <div>비밀번호</div>
-                                    <input
-                                        name="password"
-                                        type="password"
-                                        autoComplete="off"
-                                        disabled={messageUpsertMutation.isPending}
-                                    />
-                                </div>
-                                <div className={styles.modalInput}>
-                                    <div>축하 메세지</div>
-                                    <textarea
-                                        className={styles.textArea}
-                                        name="message"
-                                        autoComplete="off"
-                                        defaultValue={editMode ? editingMessage?.message : ""}
-                                        disabled={messageUpsertMutation.isPending}
-                                    />
-                                </div>
-                                <button className={styles.modalBtn} type="submit" disabled={messageUpsertMutation.isPending}>
-                                    {messageUpsertMutation.isPending ? (editMode ? "수정" : "등록") + " 중..." : (editMode ? "수정" : "등록")}
-                                </button>
-                            </form>
+                            {/*<form onSubmit={handleSubmit}>*/}
+                            {/*    <div className={styles.modalInput}>*/}
+                            {/*        <div>이름</div>*/}
+                            {/*        <input*/}
+                            {/*            name="name"*/}
+                            {/*            autoComplete="off"*/}
+                            {/*            defaultValue={editMode ? editingMessage?.name : ""}*/}
+                            {/*            disabled={messageUpsertMutation.isPending}*/}
+                            {/*        />*/}
+                            {/*    </div>*/}
+                            {/*    <div className={styles.modalInput}>*/}
+                            {/*        <div>비밀번호</div>*/}
+                            {/*        <input*/}
+                            {/*            name="password"*/}
+                            {/*            type="password"*/}
+                            {/*            autoComplete="off"*/}
+                            {/*            disabled={messageUpsertMutation.isPending}*/}
+                            {/*        />*/}
+                            {/*    </div>*/}
+                            {/*    <div className={styles.modalInput}>*/}
+                            {/*        <div>축하 메세지</div>*/}
+                            {/*        <textarea*/}
+                            {/*            className={styles.textArea}*/}
+                            {/*            name="message"*/}
+                            {/*            autoComplete="off"*/}
+                            {/*            defaultValue={editMode ? editingMessage?.message : ""}*/}
+                            {/*            disabled={messageUpsertMutation.isPending}*/}
+                            {/*        />*/}
+                            {/*    </div>*/}
+                            {/*    <button className={styles.modalBtn} type="submit" disabled={messageUpsertMutation.isPending}>*/}
+                            {/*        {messageUpsertMutation.isPending ? (editMode ? "수정" : "등록") + " 중..." : (editMode ? "수정" : "등록")}*/}
+                            {/*    </button>*/}
+                            {/*</form>*/}
+                            더 이상 메세지를 받지 않습니다.
                         </div>
                     )}
                     {delModal && (
